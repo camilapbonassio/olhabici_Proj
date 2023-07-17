@@ -1,0 +1,123 @@
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus{
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.login-titulo-1{
+    text-align: center;
+    margin-bottom: 20px;
+
+
+}
+
+.login-titulo-2{
+    display: block;
+    justify-content: flex-start;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+ 
+    
+
+}
+
+.login-div{
+   
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    flex-direction: column;
+    
+}
+
+
+
+
+.login-btn-form{
+    width: 100%;
+    background-color: rgb(148, 23, 23);
+    color: white;
+    margin-top: 30px;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    font-size: medium;
+    border-radius: 5px;
+    
+
+
+}
+
+.login-form{ 
+    display: block;
+    background-color: rgb(255, 212, 212);
+    border-radius: 5px;
+    padding: 30px;
+    
+   
+}
+
+.login-form-w{ 
+ 
+    background-color: white;
+   
+   
+}
+
+
+.login-div-input{
+    display: block;
+    width: 20vw;
+   
+}
+
+
+
+
+
+.login-input{
+    background-color: white;
+    padding: 10px;
+    margin:  5px 0px;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+
+}
+
+input::placeholder{
+    opacity: 1;
+    
+   
+ 
+
+}
+
+.login-links{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none; /* Remove bullets */
+    
+}
+
+li{
+    margin: 10px 0px 5px;
+    text-align: center;
+    
+}
+
+.login-logo{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}

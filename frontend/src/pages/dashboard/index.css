@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300&family=Libre+Baskerville&family=Source+Sans+Pro:wght@300&family=Titillium+Web:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.ilicito-div {
+    display: inline-block;
+    text-align: center;
+}
+.ilicito-span {
+    justify-content: space-between ;
+}
+
+form{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.form{
+    width: 100%;
+    margin: 2em 0;
+    flex-direction: column;
+}
+
+
+
+
+
