@@ -1,4 +1,5 @@
+
+/connection.js
+/src/config/**
 /node_modules
 /.env
-connection.*
-src/config/**
