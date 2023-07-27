@@ -1,3 +1,4 @@
 /node_modules
 /.env
-/connection
+connection.js
+src/config/database.js
