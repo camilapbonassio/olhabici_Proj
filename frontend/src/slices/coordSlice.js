@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useState } from "react";
-import { getUserFromLocalStorage, addUserToLocalStorage, removeUserFromLocalStorage } from "../utils/localStorageFunctions";
+
 import {config} from '../utils/url'
 
 

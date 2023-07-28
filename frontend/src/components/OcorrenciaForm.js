@@ -1,6 +1,5 @@
 import {React, useContext} from 'react';
 import axios from "axios";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react"
 import { useEffect } from 'react';
@@ -8,7 +7,6 @@ import { toast } from "react-toastify"
 import { useSelector, useDispatch } from 'react-redux';
 import {loadOcorrenciaInfo} from '../slices/ocorrenciaSlice'
 import "./index.css";
-import "./data_picker.css"
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 import { UserContext } from '../Context'
 import {config} from '../utils/url'
