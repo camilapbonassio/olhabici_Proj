@@ -52,7 +52,7 @@ export default function DadosCadastrados() {
 */
 
 useEffect(() => {
-  axios.get(`${URL}/api/ocorrencia`)
+  axios.get(`${URL}/ocorrencia`)
   .then(response => {
    const {data} = response
    console.log(data)
@@ -66,7 +66,7 @@ useEffect(() => {
 }, []);
 
 const deletePin = (id) =>{
-  axios.delete(`${URL}/api/${id}`)
+  axios.delete(`${URL}/${id}`)
 .then(res => {
   if (res.status === 201){
     console.log(res)
@@ -119,7 +119,7 @@ const deletePin = (id) =>{
         {dt.img_path? 
       <div className='show'>
         <img className='img_cadastrada' 
-        src={`${URL}/${dt.img_path}`} 
+        src={`${URL}/images/${dt.img_name}`} 
         alt='imgCadastrada'/>
       </div> : 
         <div className='show' >

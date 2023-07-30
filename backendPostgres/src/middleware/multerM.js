@@ -1,6 +1,6 @@
 const express = require('express')
 const multer =  require('multer');
-const pool = require('../config/database')
+const pool = require('../../connection')
 const app = express()
 const path = require("path");
 
@@ -8,7 +8,7 @@ const path = require("path");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/images')
+        cb(null, 'api/images')
 
     },
 

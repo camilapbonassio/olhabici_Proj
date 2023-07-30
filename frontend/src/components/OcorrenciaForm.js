@@ -45,7 +45,7 @@ export default function OcorrenciaForm({ isPerfilDisabled, setPerfilDisabled, is
   const [ distrito, setDistrito] = useState([])
 
   useEffect(() =>{
-    fetch(`${URL}/api/categorias`)
+    fetch(`${URL}/categorias`)
     .then(response => response.json())
     .then((data) => setCategoria(data));
   }, [])
@@ -53,7 +53,7 @@ export default function OcorrenciaForm({ isPerfilDisabled, setPerfilDisabled, is
 console.log(categoria)
 
 useEffect(() =>{
-    fetch(`${URL}/api/distritos`)
+    fetch(`${URL}/distritos`)
     .then(response => response.json())
     .then((data) => setDistrito(data));
   }, [])
@@ -146,7 +146,7 @@ useEffect(() =>{
   setFileName('')
   selectedDate_oc('')
           
-  axios.post(`${URL}/api/novaocorrencia`, formData)
+  axios.post(`${URL}/novaocorrencia`, formData)
     .then(res => {
       if (res.status === 201){
         const { id_o, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_occ} = res.data

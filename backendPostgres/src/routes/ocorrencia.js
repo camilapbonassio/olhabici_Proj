@@ -1,6 +1,6 @@
 const express = require('express')
-const pool = require('../config/database');
-const { Client } = require('pg');
+const pool = require('../../connection')
+//const { Client } = require('pg');
 const router = express.Router();
 const multer =  require('multer');
 const {upload} = require ("../middleware/multerM")

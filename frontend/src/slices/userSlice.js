@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk(
         console.log(data)
         //console.log(`Login User: ${JSON.stringify(user)}`);
         try {
-            const resp = await axios.post(`${URL}/api/users/login`,{
+            const resp = await axios.post(`${URL}/users/login`,{
                 email: data.email,
                 senha: data.password,
                 nome: data.nome
@@ -41,7 +41,7 @@ export const registerUser = createAsyncThunk(
     async(user, thunkAPI) =>{
         console.log(user)
         try {
-            const resp = await axios.post(`${URL}/api/users/r/register`, user)
+            const resp = await axios.post(`${URL}/users/r/register`, user)
             console.log(resp)
             return resp.data
         } catch (error) {

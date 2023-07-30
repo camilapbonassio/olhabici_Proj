@@ -41,7 +41,7 @@ export function UserContextProvider({children}){
 ///
 async function Login(dta) {
     console.log(dta)
-    const response = await axios.post(`${URL}/api/users/login`, dta);
+    const response = await axios.post(`${URL}/users/login`, dta);
 
     
     const {data: {id_u, token}} = response

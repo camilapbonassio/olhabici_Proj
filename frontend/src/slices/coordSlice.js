@@ -11,7 +11,7 @@ const URL = config.url
 
 export const allOccFetch = createAsyncThunk(
     "occ/allOccFetch", () => {
-        const promise = axios.get(`${URL}/api/ocorrencia`)  //json
+        const promise = axios.get(`${URL}/ocorrencia`)  //json
         const dataPromise = promise.then((response) => response.data)
         console.log(dataPromise)
         return dataPromise
@@ -35,7 +35,7 @@ export const filterFetch = createAsyncThunk(
             try {
                 //const { startdate, enddate} = {parametros}
                 console.log(parametros.cat)                
-                const response  = await axios.get(`${URL}/api/getCoord?startdate=${parametros.startdate}&enddate=${parametros.enddate}&cat=${parametros.cat}`, 
+                const response  = await axios.get(`${URL}/getCoord?startdate=${parametros.startdate}&enddate=${parametros.enddate}&cat=${parametros.cat}`, 
                 { parametros: { startdate: parametros.startdate, enddate: parametros.enddate, ili: parametros.cat}})
                 console.log("resposta", response.data)
                 return response.data

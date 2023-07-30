@@ -216,7 +216,7 @@ const Mapping = () => {
               {
                 popupInfo.img_path? 
                 <img width = '100%'  
-                src={`${URL}/${popupInfo.img_path}`} 
+                src={`${URL}/images/${popupInfo.img_path}`} 
                 alt='imgCadastrada'/> :
                <div style={{fontWeight: 'bold'}} > no image </div>
               }

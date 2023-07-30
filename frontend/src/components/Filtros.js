@@ -43,7 +43,7 @@ console.log(parametros)
 
 /// axios get categorias
 useEffect(() =>{
-  fetch(`${URL}/api/categorias`)
+  fetch(`${URL}/categorias`)
   .then(response => response.json())
   .then((data) => setCat(data));
 }, [])

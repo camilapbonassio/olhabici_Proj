@@ -1,5 +1,5 @@
 const express = require('express')
-const pool = require('../config/database')
+const pool = require('../../connection')
 const router = express.Router()
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");

@@ -52,7 +52,7 @@ export default function PerfilForm({ userPData, setUserPData, isPerfilDisabled, 
  
 
   useEffect(() =>{
-    fetch(`${URL}/api/genero`)
+    fetch(`${URL}/genero`)
     .then(response => response.json())
     .then((data) =>setGenero(data));
   }, [])
@@ -61,7 +61,7 @@ export default function PerfilForm({ userPData, setUserPData, isPerfilDisabled, 
 console.log(genero)
 
   useEffect(() =>{
-  fetch(`${URL}/api/cor_raca`)
+  fetch(`${URL}/cor_raca`)
   .then(response => response.json())
   .then((data) => setRaca(data));
 }, [])
@@ -117,7 +117,7 @@ const onSubmit = (e) =>{
 
   setValue(initialState)
 
-  axios.post(`${URL}/api/novoperfil`, { nome_p: nome_p, cor_raca: cor_raca, genero:genero, id_u: id_u, idade: idade })
+  axios.post(`${URL}/novoperfil`, { nome_p: nome_p, cor_raca: cor_raca, genero:genero, id_u: id_u, idade: idade })
   .then(res => {
       if (res.status === 201){
         const { id_p, id_u, nome_p, genero, cor_raca, idade} =res.data
