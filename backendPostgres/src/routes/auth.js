@@ -1,5 +1,6 @@
 const express = require('express')
-const pool = require('../../connection')
+//const pool = require('../../connection')
+const db = require("../../db");
 const router = express.Router()
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
@@ -12,7 +13,7 @@ router.post("/users/login", async (req, res) => {
         const {nome, email, senha} = req.body;
         console.log(email)
         
-        const user = await pool.query("select id_u, nome, email, senha from olhabici.usuario where email= $1", [email]);
+        const user = await db.query("select id_u, nome, email, senha from olhabici.usuario where email= $1", [email]);
         console.log(user.rows[0])
             if (user.rowCount > 0){ 
                 //password check
@@ -91,14 +92,14 @@ router.post("/users/login", async (req, res) => {
 
 
 router.post("/users/r/register", async (req, res) => {
-    const user = await pool.query(
+    const user = await db.query(
         "select email from olhabici.usuario where email= $1 ", [req.body.email]
     );
 
     if ( user.rowCount === 0){
         //register
         const hashedPass = await bcrypt.hash(req.body.password, 10)
-        const newUser = await pool.query(
+        const newUser = await db.query(
             "insert into olhabici.usuario (nome, email, senha) values ($1, $2, $3)",
             [req.body.nome, req.body.email, hashedPass]
         );     

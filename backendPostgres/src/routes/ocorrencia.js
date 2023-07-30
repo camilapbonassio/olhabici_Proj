@@ -1,5 +1,6 @@
 const express = require('express')
-const pool = require('../../connection')
+//const pool = require('../../connection')
+const db = require("../../db");
 //const { Client } = require('pg');
 const router = express.Router();
 const multer =  require('multer');
@@ -11,7 +12,7 @@ const {upload} = require ("../middleware/multerM")
 ///get all ocurrencies 
 router.get('/ocorrencia', async (req, res) =>{
     try {
-        const coordenadas = await pool.query("Select * from olhabici.consulta");
+        const coordenadas = await db.query("Select * from olhabici.consulta");
         res.status(200).json(coordenadas.rows)
         //console.log(coordenadas)
         
@@ -47,7 +48,7 @@ router.get('/getCoord', async (req, res) =>{
 
     
     try {
-        const datafilter = await pool.query("select * from olhabici.consulta where dt_ocorrencia >= $1 and dt_ocorrencia <= $2 and cat_ocorrencia = any($3)", [dt_inicio2, dt_fim2, cat_split]);
+        const datafilter = await db.query("select * from olhabici.consulta where dt_ocorrencia >= $1 and dt_ocorrencia <= $2 and cat_ocorrencia = any($3)", [dt_inicio2, dt_fim2, cat_split]);
         //console.log(req.params.startdate, req.params.enddate)
         res.status(200).json(datafilter.rows)
 
@@ -74,7 +75,7 @@ router.post('/novaocorrencia', upload.single('image'), async (req, res) => {
 
             // process image here
 
-            const newOcc= await pool.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
+            const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
             RETURNING id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name`, 
             [id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, path, filename])
 
@@ -85,7 +86,7 @@ router.post('/novaocorrencia', upload.single('image'), async (req, res) => {
             
         }else{
 
-        const newOcc= await pool.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia) values ($1, $2, $3, $4, $5, $6, $7, $8) 
+        const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia) values ($1, $2, $3, $4, $5, $6, $7, $8) 
         RETURNING id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia`, 
         [id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia])
 
@@ -110,7 +111,7 @@ router.delete('/:id', async (req, res) => {
     const id = parseInt(req.params.id)
 
     try {
-        const deletedId =await pool.query(`delete from olhabici.consulta where id_p = $1 returning id_p`, [id])
+        const deletedId =await db.query(`delete from olhabici.consulta where id_p = $1 returning id_p`, [id])
         res.status(201).send(deletedId.rows[0])
         
     } catch (error) {

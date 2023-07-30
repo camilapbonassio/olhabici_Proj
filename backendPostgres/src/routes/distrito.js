@@ -1,12 +1,13 @@
 const express = require('express')
-const pool = require('../../connection')
+//const pool = require('../../connection')
+const db = require("../../db");
 //const { Client } = require('pg');
 const router = express.Router();
 
 
 router.get('/distritos', async (req, res) =>{
     try {
-        const distrito = await pool.query("Select * from olhabici.distritos");
+        const distrito = await db.query("Select * from olhabici.distritos");
         res.status(200).json(distrito.rows)
         
     } catch (error) {
