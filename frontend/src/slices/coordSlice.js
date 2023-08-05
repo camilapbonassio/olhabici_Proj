@@ -85,6 +85,17 @@ const occSlice = createSlice ({
             //sessionStorage.setItem("zoomPoint", JSON.stringify(action.payload))
             state.zoomPoint = action.payload
 
+        },
+        update_coordenadas(state, action){
+            const newCoord = action.payload
+            state.coordenadas.push(newCoord);
+        },
+        update_coordenadas_decrease(state, action){
+            const newCoords = state.coordenadas.filter(
+                c => c.id_o !== action.payload.id_o
+            );
+            state.coordenadas = newCoords
+
         }
           
     },
@@ -152,7 +163,7 @@ const occSlice = createSlice ({
 
        
 })
-export const  {update_location, update_zoomToPoint} = occSlice.actions;
+export const  {update_location, update_zoomToPoint, update_coordenadas, update_coordenadas_decrease} = occSlice.actions;
 
 
 export default occSlice.reducer

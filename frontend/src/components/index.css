@@ -138,21 +138,18 @@ nav {
 .overlay-map{
     overflow-y: scroll;
     position: absolute;
-
     margin: 0px;
     border: none;
     border-radius: 3px;
     font-size: 8px;
-    
     text-align: center;
- 
     background: white;
     width: 25vw;
     height: 90vh;
 }
 
 .overlay-map-button-open{
-    position: absolute;
+    position: relative;
     display: flex;
     margin: 5px;
     border: 2px solid rgb(219, 187, 187);
@@ -162,13 +159,22 @@ nav {
     justify-content: center;
     color: white;
     background: rgb(112, 14, 14);
-    width: 4vw;
-    height: 4vh;
+    width: 3vw;
+    height: 3vh;
+    cursor: pointer;
+   
 }
 
+
+.ov{
+    display: flex;
+    justify-content: right; 
+ 
+    
+}
+
+
 .overlay-map-button-close{
-    position: relative;
-    right: 0;
     display: flex;
     border: 2px solid rgb(219, 187, 187);
     border-radius: 3px;
@@ -179,6 +185,9 @@ nav {
     background: rgb(112, 14, 14);
     width: 3vw;
     height: 3vh;
+    cursor: pointer;
+    white-space: nowrap;
+    
 }
 .overlay {
     width: 100%;
@@ -213,7 +222,7 @@ nav {
  
 
 .tab1:hover{
-    color:#CC0000;
+    color:#00cc4e;
     text-decoration: none;
    
     
@@ -703,11 +712,61 @@ nav {
 
 
 
-@media screen and (max-width: 900px){
+@media (max-width: 500px){
 
-    .sair-btn{
+    .overlay-map-button-open{
         display: none;
     }
+
+    .open-mobile{
+        position: relative;
+        display: flex;
+        margin: 5px;
+        border: 2px solid rgb(219, 187, 187);
+        border-radius: 3px;
+        font-size: medium;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background: rgb(112, 14, 14);
+        width: 3.5vw;
+        height: 3.5vh;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+    
+    .ov{
+        display: none;
+    }
+    
+    .ov-mobile{
+        display: flex;
+        justify-content: right; 
+        
+    }
+    
+    
+    .close-mobile{
+        display: flex;
+        border: 2px solid rgb(219, 187, 187);
+        border-radius: 3px;
+        font-size: medium; 
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background: rgb(112, 14, 14);
+        width: 3vw;
+        height: 3vh;
+        cursor: pointer;
+        white-space: nowrap;
+        
+    }
+
+
+
+
+
+   
 
     .nav-header{
         display:none;
@@ -721,11 +780,12 @@ nav {
     }
 
     .nav-header-mobile{
-        width: 100%;
-        display: flex;
-        text-align: center;
-        justify-content: space-between;
-        padding: 1rem;
+    height: 8vh;
+    display: flex;
+    align-items:center;
+    padding: 1rem;
+    justify-content: space-between;
+        
     }
 
     .nav-toggle-mobile {

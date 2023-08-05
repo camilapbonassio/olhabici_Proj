@@ -75,10 +75,15 @@ router.post('/novaocorrencia', upload.single('image'), async (req, res) => {
 
             // process image here
 
-            const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
-            RETURNING id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name`, 
+            //const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
+            //RETURNING id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name`, 
+            //[id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, path, filename])
+
+            const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, img_path, img_name) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+            returning id_o, longitude, latitude`, 
             [id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia, path, filename])
 
+            
 
             console.log('result ', newOcc.rows[0])
             res.status(201).send(newOcc.rows[0])
@@ -86,12 +91,19 @@ router.post('/novaocorrencia', upload.single('image'), async (req, res) => {
             
         }else{
 
-        const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia) values ($1, $2, $3, $4, $5, $6, $7, $8) 
-        RETURNING id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia`, 
-        [id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia])
+            //const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia) values ($1, $2, $3, $4, $5, $6, $7, $8) 
+            //RETURNING id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia`, 
+            //[id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia])
 
-        console.log(newOcc.rows[0])
-        res.status(201).send(newOcc.rows[0])
+            const newOcc= await db.query(`insert into olhabici.ocorrencia ( id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia) values ($1, $2, $3, $4, $5, $6, $7, $8)
+            returning id_o, longitude, latitude`, 
+            [id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia])
+
+            console.log(newOcc.rows[0])
+
+            
+            console.log(newOcc.rows[0])
+            res.status(201).send(newOcc.rows[0])
                 
         
     }

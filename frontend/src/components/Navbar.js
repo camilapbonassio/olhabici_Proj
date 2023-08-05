@@ -80,25 +80,26 @@ const toggleLinks = () =>{
     <div className='nav-mobile'>
     <div className='nav-header-mobile'>
         <img className='logo' src={logo} alt='logo'/>
-        <button className='nav-toggle-mobile' onClick={toggleLinks}><FaBars /></button>
+        <div className='sair-btn-mobile'>
+              <button
+              type='button'
+              className='btn-nav'
+              //onClick = {(e) => dispatch(logoutUser())}
+              //onClick = {() => dispatch(logoutUser())  }>
+              onClick = {Logout}>
+                Sair
+                </button>
+          </div>
+        
+        {/*<button className='nav-toggle-mobile' onClick={toggleLinks}><FaBars /></button>*/}
     </div>
     
    
-    {/*showLink &&
-        <div className='links-container-mobile'>
-          <ul className='links-mobile'>
-            {SideBarData.map((item, index)=>{
-            return <li key={index}>
-                <a href={item.path}>{item.title}</a>
-              </li>
-            })}
-          </ul>
-          <div className='sair-btn-mobile'>
-            <span>Sair</span>
-        </div>
-        </div>
-          */}
+   
       </div>
+
+
+
     </div>
     
 

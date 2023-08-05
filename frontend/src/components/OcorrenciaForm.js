@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { toast } from "react-toastify"
 import { useSelector, useDispatch } from 'react-redux';
 import {loadOcorrenciaInfo} from '../slices/ocorrenciaSlice'
+import { update_coordenadas } from '../slices/coordSlice';
 import "./index.css";
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 import { UserContext } from '../Context'
@@ -149,12 +150,20 @@ useEffect(() =>{
   axios.post(`${URL}/novaocorrencia`, formData)
     .then(res => {
       if (res.status === 201){
-        const { id_o, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_occ} = res.data
-        dispatch(loadOcorrenciaInfo({id_o, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_occ}))
+        console.log(res.data)
+        
+        //const {id_o, longitude, latitude} = res.data      
+        //dispatch(loadOcorrenciaInfo({id_o, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_occ}))
+        //dispatch(update_coordenadas({id_o, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_occ}))
+        //dispatch(update_coordenadas({id_o, longitude, latitude, cor: 'blue'}))
         toast.success("Dados enviados com suceso");
-        setOccDisabled(true);}
+        setOccDisabled(true);
+        
+      }
       })
     .catch(error => console.log(error.response.data.message))
+   
+    window.location.reload()
 
   }
 
@@ -300,11 +309,12 @@ useEffect(() =>{
                 <div className='form_control'>
 
                 <button 
+                
                 onClick={resetForm}
                 type="submit" 
                 className={isOccDisabled ? "btn-disabled": "btn"}
                 disabled ={isOccDisabled}>
-                  
+   
                   Reportar problema
                   </button>
 

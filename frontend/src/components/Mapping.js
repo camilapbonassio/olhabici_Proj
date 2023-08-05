@@ -15,6 +15,7 @@ import {useMap, NavigationControl, GeolocateControl} from 'react-map-gl';
 import Pin from './Pin';
 import "./index.css";
 import {config} from '../utils/url'
+import CoordPin from './CoordPin';
 
 
 const URL = config.url
@@ -29,46 +30,21 @@ const Mapping = () => {
   const mapRef = useRef()
   const dispatch = useDispatch();
   
-  const {coordenadas,  location: {lng, lat}} = useSelector( state => state.occ)
- 
-  
-  
+  const coordenadas = useSelector( state => state.occ.coordenadas)
+
+  //const {location: {lng, lat}} = useSelector( state => state.occ.location)
+
+  const {lng, lat} = useSelector( state => state.occ.location)
+
   const [popupInfo, setPopupInfo] = useState(null);
   
+
   //const [zoomP, setZoomP] = useState({y:y, x:x });
   //const {y, x} = zoomP
 
   let ZPoints = useSelector((state) => state.occ.zoomPoint)
   
  
-  
-  
-  
-/*
-  useEffect(() => {   
-    
-      if(longitude && latitude){
-        console.log(latitude, longitude)
-        setZoomP({lngY: longitude, latX:latitude})
-        console.log(zoomP)
-        const {lngY, latX} = zoomP
-
-        function flyToPoint () {
-          mapRef.current.flyTo({ 
-          center: [lngY, latX],
-          zoom: 15
-        })
-      }
-      flyToPoint()
-
-    }
-    
-  }, [latitude, longitude ]);
-  */
-  
-  ////
-
-
 
   
 
@@ -92,79 +68,17 @@ const Mapping = () => {
     }
     
 
-    /*
-   if(x && y){
-      console.log(zoomP)
-      console.log(longitude, latitude)
-
-      
-      function flyToPoint () {
-      mapRef.current.flyTo({ 
-      center: [y, x],
-      zoom: 15
-  })
-  }
-
-  flyToPoint()
-  
-}
-*/  
 }, [ZPoints]);
 
 
 
-
-
-/////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //const [isOpen, setIsOpen] = useState(false);
-
-  //const toggleOverlay = () =>{
-  //  setIsOpen(!isOpen)
-  //};
-
- 
-  //const [latLong, setLatLog] = useState({lat:0, lng:0})
-
-
-  
-  /*
-  const handlePin = (c) => {
-    dispatch(showPin(c))
-  }
-  */
-
- //const showLatLong = (e) => {
-    //console.log(evt);
-    //console.log(e.lngLat)
-    //const { lat, lng } = e.lngLat
-    //setLatLog({lat, lng})}
-  
-//console.log("coordenadas", latLong)
-
-
-
-
-
-
-
   return (
+    
 
     <div>
+      {console.log(coordenadas)}
+
+    
 
     <Map mapLib={maplibregl}
       ref={mapRef}
@@ -172,38 +86,28 @@ const Mapping = () => {
         
         latitude: lat,
         longitude: lng,
-        zoom: 12
+        zoom: 12, 
+        maxBounds: [
+          [ -48.5374, -16.2619], // Southwest coordinates
+          [ -47.4119, -15.4854] // Northeast coordinates
+          ]
+       
         
       }}
       style={{width: '100vw', height: '90vh', position: 'absolute', margin:'0px'}}
+      //mapStyle= "mapbox://styles/mapbox/streets-v9"
       mapStyle= 'https://api.maptiler.com/maps/hybrid/style.json?key=dld42vT5KtM3scAIfGdh'
       //onClick = {showLatLong}
       
     >
-      {coordenadas.map(c =>(
+      
+     
+      
+      {coordenadas.map(c =>(        
+       <CoordPin key ={c.id_o} c={c} setPopupInfo={setPopupInfo} />
+      ))}
 
-        
-        
-         <Marker 
-         key= {c.id_o}
-         longitude={c.longitude}
-         latitude={c.latitude} 
-         color={c.cor}
-         //onClick={() => handlePin(c)}
-         onClick={e => {
-          // If we let the click event propagates to the map, it will immediately close the popup
-          // with `closeOnClick: true`
-          e.originalEvent.stopPropagation();
-          setPopupInfo(c)
-         }}
-         >
-          <Pin fill={c.cor}/>
-          
-         </Marker>
-         
-         ))}
-
-        {popupInfo && (
+      {popupInfo && popupInfo.createdat && (
           <Popup
             anchor="top"
             longitude={Number(popupInfo.longitude)}
@@ -214,17 +118,20 @@ const Mapping = () => {
               <div>Data: {popupInfo.createdat || '' } </div>
               <div>Categoria: {popupInfo.cat_ocorrencia || ''}</div>
               {
-                popupInfo.img_path? 
+                popupInfo.img_name? 
                 <img width = '100%'  
-                src={`${URL}/images/${popupInfo.img_path}`} 
+                src={`${URL}/images/${popupInfo.img_name}`} 
                 alt='imgCadastrada'/> :
-               <div style={{fontWeight: 'bold'}} > no image </div>
+              <div style={{fontWeight: 'bold'}} > no image </div>
               }
               
             </div>
             
           </Popup>
-         )}
+        )}
+                
+
+        
 
         
      

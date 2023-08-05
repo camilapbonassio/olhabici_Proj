@@ -37,9 +37,9 @@ app.use('/api', genero)
 
 
 
-const port = process.env.PORT || 8800; 
+const port_ = process.env.port_ || 8800; 
 
-app.listen(port, () => {
+app.listen(port_, () => {
     console.log("backend server in running")
 })
 

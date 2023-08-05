@@ -12,6 +12,7 @@ function Pin(props) {
 
     const [hover, setHover] = useState(false);
     console.log(props.fill)
+   
     
     const handleMouseEnter = () => {
         setHover(true)

@@ -80,6 +80,9 @@ const deletePin = (id) =>{
   } )
 .catch(error => console.log(error.response.data.message))
 
+window.location.reload()
+
+
 } 
 
 

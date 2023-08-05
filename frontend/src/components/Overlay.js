@@ -16,7 +16,7 @@ import axios from "axios"
 export default function Overlay() {
 
   const [tab, setTab] = useState(1)
-  const [showSidebar, setShowSidebar] = useState(true)
+  const [showSidebar, setShowSidebar] = useState(false)
   const [isPerfilDisabled, setPerfilDisabled] = useState(false)
   const [isOccDisabled, setOccDisabled] = useState(true)
 
@@ -35,9 +35,19 @@ export default function Overlay() {
     <Fragment>
     <div className='overlay-map'>
 
-    <div 
-      className='overlay-map-button-close'
-      onClick={() => setShowSidebar(!showSidebar)}>X</div>
+
+    <div className='ov ov-mobile'>
+        <div 
+          className='overlay-map-button-close close-mobile'
+          onClick={() => setShowSidebar(!showSidebar)}>
+            X
+        </div>
+    </div>
+
+    
+
+    
+    
     
       <ul className='tab'>
         <li className='tab1' onClick={()=> setTab(1)}>Busca</li>
@@ -79,8 +89,9 @@ export default function Overlay() {
     ) : (
 
       <div 
-      className='overlay-map-button-open'
+      className='overlay-map-button-open open-mobile'
       onClick={() => setShowSidebar(!showSidebar)}><FaBars /></div>
+
 
 
 
