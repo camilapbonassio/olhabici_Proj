@@ -13,7 +13,7 @@ export const allOccFetch = createAsyncThunk(
     "occ/allOccFetch", () => {
         const promise = axios.get(`${URL}/ocorrencia`)  //json
         const dataPromise = promise.then((response) => response.data)
-        console.log(dataPromise)
+        //console.log(dataPromise)
         return dataPromise
     })
 
@@ -34,10 +34,10 @@ export const filterFetch = createAsyncThunk(
         async(parametros, thunkAPI) =>{
             try {
                 //const { startdate, enddate} = {parametros}
-                console.log(parametros.cat)                
+                //console.log(parametros.cat)                
                 const response  = await axios.get(`${URL}/getCoord?startdate=${parametros.startdate}&enddate=${parametros.enddate}&cat=${parametros.cat}`, 
                 { parametros: { startdate: parametros.startdate, enddate: parametros.enddate, ili: parametros.cat}})
-                console.log("resposta", response.data)
+                //console.log("resposta", response.data)
                 return response.data
                 
             } catch (error) {
@@ -81,7 +81,7 @@ const occSlice = createSlice ({
             state.location = action.payload
         },
         update_zoomToPoint(state, action){
-            console.log(action)
+            //console.log(action)
             //sessionStorage.setItem("zoomPoint", JSON.stringify(action.payload))
             state.zoomPoint = action.payload
 
@@ -114,7 +114,7 @@ const occSlice = createSlice ({
         builder.addCase(allOccFetch.rejected, (state, {payload}) =>{
             state.isLoading = false;
             toast.error(payload)
-            console.log(payload)
+            //console.log(payload)
         });
 
         /*
@@ -154,7 +154,7 @@ const occSlice = createSlice ({
         builder.addCase(filterFetch.rejected, (state, {payload}) =>{
             state.isLoading = false;
             toast.error(payload)
-            console.log(payload)
+            //console.log(payload)
         });
 
         
