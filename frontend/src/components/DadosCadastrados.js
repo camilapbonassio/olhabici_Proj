@@ -1,4 +1,4 @@
-import {React, useContext} from 'react';
+import {React, useContext, useReducer} from 'react';
 import { useState } from "react"
 import { useEffect } from 'react';
 import { toast } from "react-toastify"
@@ -20,6 +20,8 @@ export default function DadosCadastrados() {
    
   const [ data, setData] = useState([])
   console.log(data)
+
+  
 
   const dispatch = useDispatch();
   
@@ -83,6 +85,8 @@ const deletePin = (id) =>{
 window.location.reload()
 
 
+
+
 } 
 
 
@@ -134,7 +138,8 @@ window.location.reload()
       <div className='dadosCadastrais-button'>
       
       <button className='button-button'
-      onClick={() => deletePin(dt.id_p)}>
+      onClick={() => deletePin(dt.id_p)}
+      >
       <div className = 'x'>X</div>
       </button> 
 

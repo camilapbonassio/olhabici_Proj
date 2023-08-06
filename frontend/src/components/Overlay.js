@@ -35,10 +35,19 @@ export default function Overlay() {
     <Fragment>
     <div className='overlay-map'>
 
-
-    <div className='ov ov-mobile'>
+    {/*mobile*/}
+    <div className='ov-mobile'>
         <div 
-          className='overlay-map-button-close close-mobile'
+          className='close-mobile'
+          onClick={() => setShowSidebar(!showSidebar)}>
+            X
+        </div>
+    </div>
+
+
+    <div className='ov '>
+        <div 
+          className='overlay-map-button-close'
           onClick={() => setShowSidebar(!showSidebar)}>
             X
         </div>

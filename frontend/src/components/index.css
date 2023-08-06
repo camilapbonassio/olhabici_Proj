@@ -159,8 +159,8 @@ nav {
     justify-content: center;
     color: white;
     background: rgb(112, 14, 14);
-    width: 3vw;
-    height: 3vh;
+    width: 4vw;
+    height: 5vh;
     cursor: pointer;
    
 }
@@ -183,8 +183,8 @@ nav {
     justify-content: center;
     color: white;
     background: rgb(112, 14, 14);
-    width: 3vw;
-    height: 3vh;
+    width: 4vw;
+    height: 5vh;
     cursor: pointer;
     white-space: nowrap;
     
@@ -712,7 +712,11 @@ nav {
 
 
 
-@media (max-width: 500px){
+@media (max-width: 700px){
+    .overlay-map-button-close{
+        display: none;
+        
+    }
 
     .overlay-map-button-open{
         display: none;
@@ -729,8 +733,8 @@ nav {
         justify-content: center;
         color: white;
         background: rgb(112, 14, 14);
-        width: 3.5vw;
-        height: 3.5vh;
+        width: 7vw;
+        height: 5vh;
         cursor: pointer;
         white-space: nowrap;
     }
@@ -755,8 +759,8 @@ nav {
         justify-content: center;
         color: white;
         background: rgb(112, 14, 14);
-        width: 3vw;
-        height: 3vh;
+        width: 5vw;
+        height: 4vh;
         cursor: pointer;
         white-space: nowrap;
         
