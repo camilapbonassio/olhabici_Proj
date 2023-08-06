@@ -20,7 +20,7 @@ router.get('/perfis', async (req, res) =>{
 //add coordinate
 router.post('/novoperfil', async (req, res) => {
 
-    console.log(req.body.id_u, req.body.nome_p, req.body.genero, req.body.cor_raca, req.body.idade)
+    //console.log(req.body.id_u, req.body.nome_p, req.body.genero, req.body.cor_raca, req.body.idade)
 
     try{
         const newProfile = await db.query(` 

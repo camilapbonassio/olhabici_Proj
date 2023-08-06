@@ -35,7 +35,7 @@ const [parametros, setParametros] = useState(initialState);
 const [datas, setDatas] = useState('')
 
 const [cat, setCat] = useState([]);
-console.log(parametros)
+//console.log(parametros)
 //const [startdate, setStartdate] = useState(new Date());
 //const [enddate, setEnddate] = useState(new Date());
 //const [show, setShow] = useState(false)
@@ -48,10 +48,10 @@ useEffect(() =>{
   .then((data) => setCat(data));
 }, [])
 
-const goToURL = ( ) =>{
-  console.log(parametros, cat)
+//const goToURL = ( ) =>{
+//  console.log(parametros, cat)
 
-}
+//}
 
 
 
@@ -61,18 +61,18 @@ const handleChange = (e) => {
     let tempCat = cat.map(i => {
       return { ...i, isChecked: checked}})
     
-    console.log("allCategories", tempCat);
+    //console.log("allCategories", tempCat);
     setCat(tempCat)
   
   }else{
     let tempCat = cat.map( (i) => 
     i.cat_ocorrencia === name ? { ...i, isChecked : checked} : i)
     
-    console.log("singleCategories", tempCat);
+    //console.log("singleCategories", tempCat);
     setCat(tempCat)
   }
   
-  console.log("categorias", cat)
+  //console.log("categorias", cat)
 }
 
 //console.log(ili)
@@ -91,7 +91,7 @@ const handleDate= (e) =>{
 const dateFormat = (date) =>{
     //console.log( new Date(date));
     var dt = new Date(date)
-    console.log(dt)
+    //console.log(dt)
     var month = '' + (dt.getMonth() + 1)
     var day = '' + dt.getDate()
     var year = '' + dt.getFullYear()
@@ -103,7 +103,7 @@ const dateFormat = (date) =>{
       day = '0' + day 
     }
 
- console.log([year, month, day].join('-'))
+ //console.log([year, month, day].join('-'))
     return [year, month, day].join('-');
   }
 
@@ -122,17 +122,17 @@ const onSubmit = (e) =>{
   const startdate = start
   const enddate = end
 
-  console.log(startdate, enddate, cat, cat.length)
+  //console.log(startdate, enddate, cat, cat.length)
 
 //categorias 
   const tempdata1= cat.filter(e => e.isChecked === true)
-  console.log (tempdata1)
+  //console.log (tempdata1)
 
   //const tempdata2 = tempdata1.map( e => e.id_c)
   //console.log (tempdata2)
 
   const tempdata2 = tempdata1.map( e => e.cat_ocorrencia)
-  console.log (tempdata2)
+  //console.log (tempdata2)
 
 
 //validacao
@@ -143,10 +143,10 @@ let array = []
     return array
   }
   validacao()
-  console.log('array', array)
+  //console.log('array', array)
 
   if(!start || !end || array.length < 1){
-    console.log( "campos vazios", cat)
+    //console.log( "campos vazios", cat)
     toast.error("Preeencha os campos vazios")
     return;
   }
@@ -154,7 +154,7 @@ let array = []
 
 
   dispatch(filterFetch( {startdate: startdate, enddate: enddate, cat: tempdata2}))
-        console.log( "info enviada",startdate, enddate, tempdata2)
+        //console.log( "info enviada",startdate, enddate, tempdata2)
 
 
 }
@@ -252,7 +252,7 @@ let array = []
            </div>
 
             <button 
-            onClick = {goToURL}
+            //onClick = {goToURL}
             className='btn-form' type="submit" >Enviar</button>
 
         </form>

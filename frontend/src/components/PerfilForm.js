@@ -40,7 +40,7 @@ export default function PerfilForm({ userPData, setUserPData, isPerfilDisabled, 
 
   const {userId} = useContext(UserContext)
   let id_u = userId
-  console.log(id_u)
+  //console.log(id_u)
  
   
  
@@ -58,7 +58,7 @@ export default function PerfilForm({ userPData, setUserPData, isPerfilDisabled, 
   }, [])
 
 
-console.log(genero)
+//console.log(genero)
 
   useEffect(() =>{
   fetch(`${URL}/cor_raca`)
@@ -66,7 +66,7 @@ console.log(genero)
   .then((data) => setRaca(data));
 }, [])
 
-console.log(raca)
+//console.log(raca)
 
 const resetForm = () => {
   let selects = document.querySelectorAll("select")
@@ -109,7 +109,7 @@ const onSubmit = (e) =>{
  
 
 
-  console.log( nome_p, cor_raca, idade, id_u)
+  //console.log( nome_p, cor_raca, idade, id_u)
   if(!nome_p || !cor_raca || !idade ){
     toast.error("Preeencha os campos vazios")
     return;

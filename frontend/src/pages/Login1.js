@@ -46,7 +46,7 @@ function Login1() {
         //console.log(e.target)
         
         const { nome, email, password} = values
-        console.log(nome, email, password)
+        //console.log(nome, email, password)
         if(!nome || !email || !password ){
             
             toast.error("Preeencha os campos vazios")

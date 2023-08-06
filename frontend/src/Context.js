@@ -60,11 +60,11 @@ async function Login(dta) {
    
     //redirect('/')
 
-    console.log(URL)
-    console.log(token)
-    console.log(id_u)
-    console.log(authenticated)
-    console.log(response);
+    //console.log(URL)
+    //console.log(token)
+    //console.log(id_u)
+    //console.log(authenticated)
+    //console.log(response);
 }
 
 function Logout(){

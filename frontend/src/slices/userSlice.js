@@ -15,7 +15,7 @@ const URL = config.url
 export const loginUser = createAsyncThunk(
     'user/loginUser',
     async(data, thunkAPI) =>{
-        console.log(data)
+        //console.log(data)
         //console.log(`Login User: ${JSON.stringify(user)}`);
         try {
             const resp = await axios.post(`${URL}/users/login`,{
@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk(
                 senha: data.password,
                 nome: data.nome
             });
-            console.log(resp)
+            //console.log(resp)
 
             //sessionStorage.setItem("token", resp.data)
     
@@ -39,10 +39,10 @@ export const loginUser = createAsyncThunk(
 export const registerUser = createAsyncThunk(
     'user/registerUser',
     async(user, thunkAPI) =>{
-        console.log(user)
+        //console.log(user)
         try {
             const resp = await axios.post(`${URL}/users/r/register`, user)
-            console.log(resp)
+            //console.log(resp)
             return resp.data
         } catch (error) {
             //toast.error(error.response.data.message)
@@ -86,12 +86,12 @@ const userSlice = createSlice ({
         loginContext(state, action){
             
             const temp = { ...action.payload}
-            console.log(temp.id_u)
+            //console.log(temp.id_u)
 
             state.id_uc = temp.id_u
             state.userDatac = {nome: temp.nome, email:temp.email}
 
-            console.log(state.id_uc, state.userDatac)
+            //console.log(state.id_uc, state.userDatac)
 
         }
 
@@ -125,14 +125,14 @@ const userSlice = createSlice ({
             //sessionStorage.setItem("token", action.payload)
 
             toast.success("Bem-vind@");
-            console.log(action.payload)
+            //console.log(action.payload)
 
             const temp = { ...action.payload}
-            console.log(temp.id_u)
+            //console.log(temp.id_u)
             state.userData = {nome: temp.nome, email:temp.email}
             state.id_u = temp.id_u
 
-            console.log(state.id_u, state.userData)
+            //console.log(state.id_u, state.userData)
             
             
          
@@ -146,7 +146,7 @@ const userSlice = createSlice ({
         builder.addCase(loginUser.rejected, (state, {payload}) =>{
             state.isLoading = false;
             toast.error(payload)
-            console.log(payload)
+            //console.log(payload)
         });
 
 

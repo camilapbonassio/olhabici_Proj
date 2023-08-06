@@ -37,7 +37,7 @@ export default function OcorrenciaForm({ isPerfilDisabled, setPerfilDisabled, is
   //const {id_u} = userPData
   const {userId} = useContext(UserContext)
   let id_u = userId
-  console.log(id_u)
+  //console.log(id_u)
 
   
 
@@ -51,7 +51,7 @@ export default function OcorrenciaForm({ isPerfilDisabled, setPerfilDisabled, is
     .then((data) => setCategoria(data));
   }, [])
 
-console.log(categoria)
+//console.log(categoria)
 
 useEffect(() =>{
     fetch(`${URL}/distritos`)
@@ -59,7 +59,7 @@ useEffect(() =>{
     .then((data) => setDistrito(data));
   }, [])
 
-  console.log(distrito)
+  //console.log(distrito)
   
 
   ///set data
@@ -68,7 +68,7 @@ useEffect(() =>{
   const [date_oc, selectedDate_oc] = useState(new Date());
   const [fileName, setFileName] = useState("")
 
-  console.log(date_oc)
+  //console.log(date_oc)
   
 
   const resetForm = () => {
@@ -81,7 +81,7 @@ useEffect(() =>{
     const file = e.target.files[0]
     
     setFile(file)
-    console.log("file", file)
+    //console.log("file", file)
     setFileName(file.name)
 
   }
@@ -89,7 +89,7 @@ useEffect(() =>{
   const dateFormat = (date_oc) =>{
     //console.log( new Date(date));
     var dt = new Date(date_oc)
-    console.log(dt)
+    //console.log(dt)
     var month = '' + (dt.getMonth() + 1)
     var day = '' + dt.getDate()
     var year = '' + dt.getFullYear()
@@ -101,7 +101,7 @@ useEffect(() =>{
       day = '0' + day 
     }
 
- console.log([year, month, day].join('-'))
+ //console.log([year, month, day].join('-'))
     return [year, month, day].join('-');
   }
   
@@ -119,12 +119,12 @@ useEffect(() =>{
 
     //const {"0": {id_u}} = user
     const {id_c, origem_id, destino_id} = values
-    console.log(date_oc)
+    //console.log(date_oc)
     //const dt_occ = dateFormat(date_oc)
     const dt_occ = date_oc
     const id_p = info_perfil.id_p
 
-    console.log(id_p, id_u, lng, lat, id_c, origem_id, destino_id, dt_occ)
+    //console.log(id_p, id_u, lng, lat, id_c, origem_id, destino_id, dt_occ)
 
     const formData = new FormData()
     formData.append( 'image', file);
@@ -150,7 +150,7 @@ useEffect(() =>{
   axios.post(`${URL}/novaocorrencia`, formData)
     .then(res => {
       if (res.status === 201){
-        console.log(res.data)
+        //console.log(res.data)
         
         //const {id_o, longitude, latitude} = res.data      
         //dispatch(loadOcorrenciaInfo({id_o, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_occ}))

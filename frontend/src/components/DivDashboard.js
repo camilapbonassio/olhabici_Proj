@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 const DivDashboard = ()=> {
 
   const {coordinates, isLoading, pins} = useSelector( state => state.coord);
-  console.log(pins)
+  //console.log(pins)
   
   
   return (

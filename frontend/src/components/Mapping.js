@@ -51,13 +51,13 @@ const Mapping = () => {
   useEffect(() => {   
    
     if(ZPoints){
-      console.log(ZPoints)
+      //console.log(ZPoints)
       
       const {x, y} = ZPoints
-      console.log(x, y)
+      //console.log(x, y)
 
       function flyToPoint (y, x) {
-        console.log(x,y)
+        //console.log(x,y)
         mapRef.current?.flyTo({ 
           center: [y, x],
           zoom: 15 })
@@ -76,7 +76,8 @@ const Mapping = () => {
     
 
     <div>
-      {console.log(coordenadas)}
+      {//console.log(coordenadas)
+      }
 
     
 

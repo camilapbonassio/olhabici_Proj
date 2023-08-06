@@ -11,10 +11,10 @@ const jwt = require("jsonwebtoken");
 router.post("/users/login", async (req, res) => { 
     try {
         const {nome, email, senha} = req.body;
-        console.log(email)
+        //console.log(email)
         
         const user = await db.query("select id_u, nome, email, senha from olhabici.usuario where email= $1", [email]);
-        console.log(user.rows[0])
+        //console.log(user.rows[0])
             if (user.rowCount > 0){ 
                 //password check
                 const match = await bcrypt.compare(senha, user.rows[0].senha);
@@ -24,7 +24,7 @@ router.post("/users/login", async (req, res) => {
                 //JWT
                 const id_u = user.rows[0].id_u
                 let token = jwt.sign({id_u: id_u, nome: nome, email: email}, process.env.JWT_SECRET_KEY)
-                console.log(token, id_u)
+                //console.log(token, id_u)
                 
                 //send to front
                 res.send({token:token, id_u:id_u}) 

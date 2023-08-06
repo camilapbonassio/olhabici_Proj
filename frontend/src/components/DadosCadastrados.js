@@ -19,7 +19,7 @@ export default function DadosCadastrados() {
   const {userId} = useContext(UserContext)
    
   const [ data, setData] = useState([])
-  console.log(data)
+  //console.log(data)
 
   
 
@@ -57,10 +57,10 @@ useEffect(() => {
   axios.get(`${URL}/ocorrencia`)
   .then(response => {
    const {data} = response
-   console.log(data)
-   console.log(userId)
+   //console.log(data)
+   //console.log(userId)
    const result = data.filter((dt)=> dt.id_u == userId)
-   console.log(result)
+   //console.log(result)
    setData(result)
 
   })
@@ -71,12 +71,12 @@ const deletePin = (id) =>{
   axios.delete(`${URL}/${id}`)
 .then(res => {
   if (res.status === 201){
-    console.log(res)
-    console.log(id)
+    //console.log(res)
+    //console.log(id)
     toast.success("Dado removido")  
-    console.log(data)
+    //console.log(data)
     let newData = data.filter(dt => dt.id_p !== id) 
-    console.log(newData)
+    //console.log(newData)
     setData(newData)     
   }
   } )
@@ -110,7 +110,8 @@ window.location.reload()
      {data.map(dt => 
 
       <>
-      {console.log(typeof(dt.longitude))}
+      {//console.log(typeof(dt.longitude))
+      }
    
       <div className='show'  >     
         <div>{dt.createdat}</div>

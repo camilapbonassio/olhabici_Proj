@@ -16,10 +16,10 @@ function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user)
-    console.log(user)
+    //console.log(user)
     
     const [values, setValues] = useState(initialState)
-    console.log(values)
+    //console.log(values)
 
     const handleChange = (e) =>{
         //console.log(e.target)
@@ -32,21 +32,21 @@ function Login() {
         e.preventDefault()
         //console.log(e.target)
         const { nome, email, password} = values
-        console.log(nome, email, password)
+        //console.log(nome, email, password)
         if(!nome || !email || !password ){
             toast.error("Preeencha os campos vazios")
             return;
         }
         dispatch(loginUser(values))
         
-        console.log("dispatch")
+        //console.log("dispatch")
 
     }
 
 
     useEffect(() =>{
         if(user.id_u){
-            console.log(user.id_u)
+            //console.log(user.id_u)
             navigate('/')
         }
     }, [user.id_u, navigate]);

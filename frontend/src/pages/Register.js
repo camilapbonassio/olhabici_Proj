@@ -16,7 +16,7 @@ function Register() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const { isLoading, register} = useSelector((state) => state.user)
-    console.log(register)
+    //console.log(register)
     const [values, setValues] = useState(initialState)
 
     const handleChange = (e) =>{
@@ -40,7 +40,7 @@ function Register() {
 
     useEffect(() =>{
         if(register){
-            console.log(register)
+            //console.log(register)
             navigate('/login1')
         }
     }, [register, navigate]);

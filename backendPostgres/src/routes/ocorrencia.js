@@ -31,18 +31,18 @@ router.get('/getCoord', async (req, res) =>{
     
     const dt_inicio1 = req.query.startdate
     const dt_inicio2 = JSON.stringify(dt_inicio1)
-    console.log(dt_inicio2)
+    //console.log(dt_inicio2)
 
     const dt_fim1 = req.query.enddate
     const dt_fim2 = JSON.stringify(dt_fim1)
-    console.log(dt_fim2)
+    //console.log(dt_fim2)
 
     const cat_str= req.query.cat
-    console.log('cat_str', cat_str)
+    //console.log('cat_str', cat_str)
 
    
     const cat_split = cat_str.split(',')
-    console.log('cat_split', cat_split)
+    //console.log('cat_split', cat_split)
     
     
 
@@ -85,7 +85,7 @@ router.post('/novaocorrencia', upload.single('image'), async (req, res) => {
 
             
 
-            console.log('result ', newOcc.rows[0])
+            //console.log('result ', newOcc.rows[0])
             res.status(201).send(newOcc.rows[0])
             
             
@@ -99,10 +99,10 @@ router.post('/novaocorrencia', upload.single('image'), async (req, res) => {
             returning id_o, longitude, latitude`, 
             [id_u, id_p, longitude, latitude, id_c, origem_id, destino_id, dt_ocorrencia])
 
-            console.log(newOcc.rows[0])
+            //console.log(newOcc.rows[0])
 
             
-            console.log(newOcc.rows[0])
+            //console.log(newOcc.rows[0])
             res.status(201).send(newOcc.rows[0])
                 
         

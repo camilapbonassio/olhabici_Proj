@@ -9,11 +9,11 @@ router.get('/cor_raca', async (req, res) =>{
     try {
         const raca = await db.query("Select * from olhabici.cor_raca");
         res.status(200).json(raca.rows)
-        console.log(raca.rows)
+        //console.log(raca.rows)
         
     } catch (error) {
         res.status(500).json({message: error.message})
-        console.log(error)
+        //console.log(error)
     }
     
 })
